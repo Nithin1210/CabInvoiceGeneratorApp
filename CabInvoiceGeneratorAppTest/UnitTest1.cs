@@ -19,25 +19,24 @@ namespace CabInvoiceGeneratorAppTest
         {
             Ride[] ride =
             {
-                new Ride (){Distance =10 ,Time=5}
+                new Ride(){Distance = 10,Time = 5}
             };
             double actual = invoiceservice.CalculateFare(ride);
             double expected = 105;
             Assert.AreEqual(actual, expected);
         }
-        [Test] //uc3
-        public void GivenRides_WhenChecked_ReturnTotalAverageFareRides()
+
+        [Test]
+        public void GivenRides_WhenChecked_ReturnTotalRides()
         {
             Ride[] ride =
             {
                 new Ride(){Distance = 10,Time = 5}
             };
-            invoiceservice.CalculateFare(ride);
-            int actual = invoiceservice.TotalNumOfRides();  
+            int actual = invoiceservice.TotalNumOfRides();
             double expected = ride.Length;
             Assert.AreEqual(actual, expected);
         }
-
 
     }
 }
