@@ -25,9 +25,23 @@
             }
             return minimumFare;
         }
-    
+
+        public double CalculateFare(Ride[] rides)
+        {
+            double totalAmount = 0;
+            foreach (var ride in rides)
+            {
+                totalAmount += ride.Distance * costPerKilometer + ride.Time * costPerMinute;
+            }
+            int numOfRides = rides.Length;
+            double aggregateAmount = totalAmount / numOfRides;
+            return aggregateAmount;
+
+        }
+
+
 
 
     }
-    
+
 }
