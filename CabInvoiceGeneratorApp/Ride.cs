@@ -8,5 +8,7 @@ namespace CabInvoiceGeneratorApp
 {
     public class Ride
     {
+        public int Distance { get; set; }
+        public int Time { get; set; }
     }
 }
