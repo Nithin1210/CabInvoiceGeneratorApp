@@ -7,14 +7,24 @@
         private readonly int costPerKilometer = 10;
         private readonly int minimumFare = 5;
         private readonly int costPerMinute = 1;
+        public int totalNumOfRides = 0;
+        public double totalFare = 0;
+        public double averageFare = 0;
 
-        public int NumOfRides
+
+        public int TotalNumOfRides()
         {
-            get
-            {
-                return this.NumOfRides;
-            }
+            return totalNumOfRides;
         }
+        public double TotalFare()
+        {
+            return totalFare;
+        }
+        public double AverageFare()
+        {
+            return averageFare;
+        }
+
 
         public double CalculateFare(double distance, double time)
         {
@@ -28,20 +38,14 @@
 
         public double CalculateFare(Ride[] rides)
         {
-            double totalAmount = 0;
             foreach (var ride in rides)
             {
-                totalAmount += ride.Distance * costPerKilometer + ride.Time * costPerMinute;
+                totalFare += ride.Distance * costPerKilometer + ride.Time * costPerMinute;
             }
-            int numOfRides = rides.Length;
-            double aggregateAmount = totalAmount / numOfRides;
-            return aggregateAmount;
-
+            totalNumOfRides = rides.Length;
+            averageFare = totalFare / totalNumOfRides;
+            return averageFare;
         }
 
-
-
-
     }
-
 }
